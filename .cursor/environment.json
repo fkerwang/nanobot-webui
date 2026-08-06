@@ -1,0 +1,15 @@
+{
+  "name": "nanobot-webui",
+  "install": "bash .cursor/install.sh",
+  "terminals": [
+    {
+      "name": "backend",
+      "command": "export PATH=\"$HOME/.local/bin:$HOME/.bun/bin:$PATH\"; cd /workspace && source .venv/bin/activate && nanobot webui start --host 0.0.0.0 --port 18780 --log-level INFO"
+    },
+    {
+      "name": "frontend",
+      "command": "export PATH=\"$HOME/.local/bin:$HOME/.bun/bin:$PATH\"; cd /workspace/web && bun run dev --host"
+    }
+  ],
+  "ports": [18780, 5173]
+}
