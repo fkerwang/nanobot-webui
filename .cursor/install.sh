@@ -31,6 +31,11 @@ fi
 echo "[install] Installing backend (editable, with dev extras)…"
 uv pip install -e ".[dev]"
 
+# nanobot-ai also ships a `nanobot` console script. Reinstall this package's
+# scripts last so the wrapper that injects the `webui` subcommand wins, making
+# `nanobot webui start` work (in addition to `python -m webui`).
+uv pip install -e . --no-deps --force-reinstall
+
 # --- Frontend: dependencies + production build ------------------------------
 echo "[install] Installing frontend dependencies…"
 (cd web && bun install --frozen-lockfile)
