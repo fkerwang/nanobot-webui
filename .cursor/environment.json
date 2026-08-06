@@ -11,5 +11,8 @@
       "command": "export PATH=\"$HOME/.local/bin:$HOME/.bun/bin:$PATH\"; cd /workspace/web && bun run dev --host"
     }
   ],
-  "ports": [18780, 5173]
+  "ports": [
+    { "name": "frontend", "port": 5173 },
+    { "name": "backend", "port": 18780 }
+  ]
 }
